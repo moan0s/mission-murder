@@ -5,9 +5,13 @@ Rules: The game is to be played on events like a weekend with friends or for exa
 Example: 
 
 Maria -> John
+
 John -> Mohammed
+
 Mohammed -> Anna
+
 Anna -> Maria
+
 -> means "has to kill".
 
 If John "kills" Mohammed, Mohammed is Game Over. John now has to "kill" Anna.
