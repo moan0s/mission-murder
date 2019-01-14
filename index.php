@@ -181,61 +181,6 @@ switch ($oObject->r_ac){
             $oObject->error.= NO_PERMISSION;
         }
         break;
-
-    case 'material_new':
-        if ($_SESSION['admin']==1){
-            $oObject->output .= $oObject->get_view('views/material_form.php');
-        }
-        else{
-            $oObject->error .= NO_PERMISSION;
-        }
-        break;
-
-    case 'material_change':
-        if ($_SESSION['admin']==1){
-            $oObject->aRow_all = $oObject->get_material_itemized();
-            $oObject->aRow = $oObject->aRow_all[$oObject->r_material_ID];
-            $oObject->output = $oObject->get_view('views/material_form.php');
-        }
-        else{
-            $oObject->error .= NO_PERMISSION;
-        }
-        break;
-    case 'material_save':
-        if ($_SESSION['admin']==1){
-            $oObject->save_material();
-            $oObject->r_material_ID = NULL;
-            $oObject->aMaterial = $oObject->get_material_itemized();
-            $oObject->output .= $oObject->get_view("views/all_material_itemized.php");
-        }
-        else{
-            $oObject->error .= NO_PERMISSION;
-        }
-        break;
-    case 'material_show':
-        $oObject->aMaterial = $oObject->get_material();
-        $oObject->output .= $oObject->get_view("views/all_material.php");
-        break;
-    case 'material_show_plain':
-        $oObject->aMaterial = $oObject->get_material();
-        $oObject->output .= $oObject->get_view("views/all_material.php");
-
-        break;
-    case 'material_show_itemized':
-        $oObject->aMaterial = $oObject->get_material_itemized();
-        $oObject->output .= $oObject->get_view("views/all_material_itemized.php");
-        break;
-    case 'material_delete':
-        if ($_SESSION['admin']==1){
-            $oObject->delete_material();
-            $oObject->r_material_ID = NULL;
-            $oObject->aMaterial = $oObject->get_material_itemized();
-            $oObject->output .= $oObject->get_view("views/all_material_itemized.php");
-        }
-        else{
-            $oObject->error.= NO_PERMISSION;
-        }
-        break;
     case 'user_new':
         if ($_SESSION['admin']==1){
             $oObject->output .= $oObject->get_view("views/user_form.php");
